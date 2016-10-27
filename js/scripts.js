@@ -24,15 +24,16 @@ var encodeSquare = function(text) {
 
   var encodedText = "";
   debugger;
-  for (rowNum = 0; rowNum < squareSize; rowNum ++) {
-    console.log("rowNum is now " + rowNum);
-    for (colNum = 0; colNum < squareSize; colNum ++) {
-      console.log("colNum is now " + colNum);
-      if (!(textStripped[rowNum + colNum])) {
+  for (colNum = 1; colNum <= squareSize; colNum ++) {
+    console.log("colNum is now " + colNum);
+    for (rowNum = 1; rowNum < textCharCount; rowNum ++) {
+      console.log("rowNum is now " + rowNum);
+      console.log("current character is " + textStripped.charAt(((colNum - 1) + ((rowNum - 1) * squareSize))));
+      if (!(textStripped.charAt(((colNum - 1) + ((rowNum - 1) * squareSize))))) {
         console.log("reached a falsey character in 'textStripped'");
-        break
       } else {
-      encodedText += (textStripped[rowNum + colNum]);
+      console.log("adding " + textStripped[(colNum - 1) + ((rowNum - 1) * squareSize)] + " to encodedText");
+      encodedText += textStripped[(colNum - 1) + ((rowNum - 1) * squareSize)];
       };
     };
   };
